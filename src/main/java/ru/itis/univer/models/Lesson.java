@@ -27,4 +27,6 @@ public class Lesson {
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
     @JoinColumn(name = "subject_id")
     private Subject subject;
+
+    private boolean isActive;
 }

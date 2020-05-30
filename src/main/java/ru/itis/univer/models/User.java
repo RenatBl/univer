@@ -27,6 +27,7 @@ public class User implements Serializable {
     private String email;
     private String hashPassword;
     private LocalDateTime createdAt;
+    private String confirmCode;
 
     @Enumerated(value = EnumType.STRING)
     private State state;
