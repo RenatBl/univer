@@ -30,6 +30,6 @@ public class Subject {
     @JoinColumn(name = "teacher_id")
     private User teacher;
 
-    @OneToMany(fetch = FetchType.LAZY)
+    @ManyToMany(mappedBy = "subjects")
     private Set<User> students;
 }

@@ -28,5 +28,5 @@ public class Lesson {
     @JoinColumn(name = "subject_id")
     private Subject subject;
 
-    private boolean isActive;
+    private boolean isAvailable;
 }

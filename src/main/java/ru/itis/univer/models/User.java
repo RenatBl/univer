@@ -10,6 +10,7 @@ import ru.itis.univer.models.enums.State;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Data
 @AllArgsConstructor
@@ -34,5 +35,11 @@ public class User implements Serializable {
 
     @Enumerated(value = EnumType.STRING)
     private Role role;
+
+    @ManyToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinTable(name = "users_subjects",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "subject_id"))
+    private List<Subject> subjects;
 }
 
