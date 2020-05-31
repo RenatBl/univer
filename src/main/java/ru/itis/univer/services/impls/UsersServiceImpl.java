@@ -28,6 +28,11 @@ public class UsersServiceImpl implements UsersService {
     }
 
     @Override
+    public User getOne(Long id) {
+        return usersRepository.getOne(id);
+    }
+
+    @Override
     public void updateUser(User user) {
         usersRepository.save(user);
     }

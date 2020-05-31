@@ -1,11 +1,11 @@
-package ru.itis.univer.services;
+package ru.itis.univer.services.impls;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.itis.univer.forms.LessonForm;
 import ru.itis.univer.models.Lesson;
 import ru.itis.univer.repositories.LessonsRepository;
 import ru.itis.univer.repositories.SubjectsRepository;
+import ru.itis.univer.services.LessonsService;
 
 @Service
 public class LessonsServiceImpl implements LessonsService {

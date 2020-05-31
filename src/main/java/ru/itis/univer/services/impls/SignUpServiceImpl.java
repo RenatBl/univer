@@ -1,6 +1,5 @@
 package ru.itis.univer.services.impls;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import ru.itis.univer.forms.SignUpForm;
@@ -50,9 +49,10 @@ public class SignUpServiceImpl implements SignUpService {
 
         usersRepository.save(user);
 
-        threadPool.submit(() -> {
-            emailService.sendMail("Регистрация", user.getConfirmCode(), user.getEmail());
-        });
-
+        threadPool.submit(() ->
+                emailService.sendMail("Регистрация",
+                        user.getConfirmCode(),
+                        user.getEmail())
+                );
     }
 }
