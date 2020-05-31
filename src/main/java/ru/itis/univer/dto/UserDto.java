@@ -18,12 +18,14 @@ public class UserDto {
     private Long id;
     private String name;
     private String email;
+    private Integer subjectsCount;
 
     public static UserDto from(User user) {
         return UserDto.builder()
                 .email(user.getEmail())
                 .name(user.getUsername())
                 .id(user.getId())
+                .subjectsCount(user.getSubjects().size())
                 .build();
     }
 

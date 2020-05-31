@@ -2,6 +2,8 @@ package ru.itis.univer.services.impls;
 
 import org.springframework.stereotype.Service;
 import ru.itis.univer.dto.UserDto;
+import ru.itis.univer.forms.UserForm;
+import ru.itis.univer.models.User;
 import ru.itis.univer.repositories.UsersRepository;
 import ru.itis.univer.services.UsersService;
 
@@ -24,5 +26,10 @@ public class UsersServiceImpl implements UsersService {
     @Override
     public UserDto getUser(Long userId) {
         return UserDto.from(usersRepository.getOne(userId));
+    }
+
+    @Override
+    public void updateUser(User user) {
+        usersRepository.save(user);
     }
 }
