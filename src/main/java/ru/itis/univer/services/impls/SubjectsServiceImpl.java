@@ -47,7 +47,13 @@ public class SubjectsServiceImpl implements SubjectsService {
     }
 
     @Override
-    public void deleteSubject(Subject subject) {
+    public void createSubject(String name, User teacher) {
+        subjectsRepository.save(Subject.builder().name(name).teacher(teacher).build());
+    }
+
+    @Override
+    public void deleteSubject(Long id) {
+        Subject subject = subjectsRepository.getOne(id);
         subjectsRepository.delete(subject);
     }
 }

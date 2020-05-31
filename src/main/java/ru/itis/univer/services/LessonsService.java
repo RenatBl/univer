@@ -1,10 +1,8 @@
 package ru.itis.univer.services;
 
-import ru.itis.univer.models.Lesson;
-
-import java.util.List;
+import ru.itis.univer.forms.LessonForm;
 
 public interface LessonsService {
-    List<Lesson> getAllLessons();
-
+    void createLesson(LessonForm form);
+    void deleteLesson(Long id);
 }
