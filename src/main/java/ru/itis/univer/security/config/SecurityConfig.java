@@ -48,6 +48,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/deleteSubject").hasAuthority("TEACHER")
                     .antMatchers("/deleteLesson").hasAuthority("TEACHER")
                     .antMatchers("/").authenticated()
+                    .antMatchers("/files").authenticated()
+                    .antMatchers("/storage").authenticated()
                 .and()
                     .rememberMe()
                     .rememberMeParameter("remember-me")
