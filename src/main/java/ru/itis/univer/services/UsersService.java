@@ -12,4 +12,5 @@ public interface UsersService {
     User getOne(Long id);
 
     void updateUser(User user);
+    void confirmUser(String code);
 }

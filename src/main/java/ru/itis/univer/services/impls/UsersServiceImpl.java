@@ -3,6 +3,7 @@ package ru.itis.univer.services.impls;
 import org.springframework.stereotype.Service;
 import ru.itis.univer.dto.UserDto;
 import ru.itis.univer.models.User;
+import ru.itis.univer.models.enums.State;
 import ru.itis.univer.repositories.UsersRepository;
 import ru.itis.univer.services.UsersService;
 
@@ -34,6 +35,15 @@ public class UsersServiceImpl implements UsersService {
 
     @Override
     public void updateUser(User user) {
+        usersRepository.save(user);
+    }
+
+    @Override
+    public void confirmUser(String code) {
+        User user = usersRepository.findByConfirmCode(code).orElseThrow(() ->
+                new IllegalArgumentException("User not found")
+        );
+        user.setState(State.CONFIRMED);
         usersRepository.save(user);
     }
 }
