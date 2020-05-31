@@ -52,6 +52,13 @@ public class SubjectsServiceImpl implements SubjectsService {
     }
 
     @Override
+    public void subscribe(User user, Long subjectId) {
+        Subject subject = subjectsRepository.getOne(subjectId);
+        subject.setStudents(Collections.singleton(user));
+        subjectsRepository.save(subject);
+    }
+
+    @Override
     public void deleteSubject(Long id) {
         Subject subject = subjectsRepository.getOne(id);
         subjectsRepository.delete(subject);

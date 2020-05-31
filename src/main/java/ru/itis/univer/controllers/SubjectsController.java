@@ -49,6 +49,13 @@ public class SubjectsController {
         return "redirect:/subjects";
     }
 
+    @PostMapping("/subscribe")
+    public String subscribeOnSubject(@AuthenticationPrincipal UserDetailsImpl userDetails,
+                                     @RequestParam("subject") Long id) {
+        subjectsService.subscribe(userDetails.getUser(), id);
+        return "redirect:/subjects";
+    }
+
     @DeleteMapping("/deleteSubject")
     public String deleteSubject(@RequestParam("id") Long id) {
         subjectsService.deleteSubject(id);

@@ -15,5 +15,6 @@ public interface SubjectsService {
     List<Subject> getAllSubjects();
 
     void createSubject(String name, User teacher);
+    void subscribe(User user, Long subjectId);
     void deleteSubject(Long id);
 }
